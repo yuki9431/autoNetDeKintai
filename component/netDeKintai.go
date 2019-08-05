@@ -45,13 +45,13 @@ func Punch(user User, isCome bool) (err error) {
 
 func new(user User) (web *WebInfo, err error) {
 	// start driver
-	driver := agouti.ChromeDriver()
+	driver := agouti.PhantomJS()
 	if err = driver.Start(); err != nil {
 		return nil, fmt.Errorf("Error: Failed to start driver:%v", err.Error())
 	}
 	// defer driver.Stop()
 
-	page, err := driver.NewPage(agouti.Browser("chrome"))
+	page, err := driver.NewPage(agouti.Browser("phantomjs"))
 	if err != nil {
 		return nil, fmt.Errorf("Error: Failed to open page:%v", err.Error())
 	}
@@ -105,6 +105,11 @@ func (web *WebInfo) login() (err error) {
 
 func (web *WebInfo) logout() (err error) {
 	err = web.Page.AllByID("ctl00_LnkbtnLogOut").Click()
+	if err != nil {
+		return
+	}
+
+	err = web.Page.CloseWindow()
 	if err != nil {
 		return
 	}

@@ -27,9 +27,6 @@ func main() {
 	userId := flag.String("usr", "", "enter your userId")
 	password := flag.String("pwd", "", "enter your password")
 
-	// get punch type
-	//isCome := flag.Bool("come", false, "use when come to work")
-	//isLeave := flag.Bool("leave", false, "use when leave to work")
 	flag.Parse()
 
 	if *help == true {

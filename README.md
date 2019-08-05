@@ -10,6 +10,7 @@ CUIのコマンドから出社と退社を実施できる.
 
 ## Install
 ```bash:#
+brew cask install phantomjs
 go get github.com/yuki9431/autoNetDeKintai/component
 ```
 
