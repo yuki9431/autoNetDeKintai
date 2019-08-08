@@ -31,8 +31,8 @@ func main() {
 	password := "KirariSuki"
 
 	userInfo := component.User{
-		Id:       *userId,
-		Password: *password,
+		Id:       userId,
+		Password: password,
 	}
 
 	// come in work
