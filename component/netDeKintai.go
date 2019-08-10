@@ -36,6 +36,14 @@ func Punch(user User, isCome bool) (err error) {
 		return fmt.Errorf("Error: Faild to punch %v", err)
 	}
 
+	if err := web.Page.Navigate("https://www1.shalom-house.jp/cla_jnj/jnj/K000.aspx"); err != nil {
+		return fmt.Errorf("Error: Failed to navigate:%v", err.Error())
+	}
+
+	if err := web.Page.Screenshot("/tmp/"); err != nil {
+		return fmt.Errorf("Error: Failed to screenshot:%v", err.Error())
+	}
+
 	if err := web.logout(); err != nil {
 		return fmt.Errorf("Error: Faild to logout %v", err)
 	}
