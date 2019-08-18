@@ -40,7 +40,7 @@ func Punch(user User, isCome bool) (err error) {
 		return fmt.Errorf("Error: Failed to navigate:%v", err.Error())
 	}
 
-	if err := web.Page.Screenshot("/tmp/"); err != nil {
+	if err := web.Page.Screenshot("dakoku.png"); err != nil {
 		return fmt.Errorf("Error: Failed to screenshot:%v", err.Error())
 	}
 
