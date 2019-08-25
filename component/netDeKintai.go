@@ -36,9 +36,7 @@ func Punch(user User, isCome bool) (err error) {
 		return fmt.Errorf("Error: Faild to punch %v", err)
 	}
 
-	if err := web.Page.Navigate("https://www1.shalom-house.jp/cla_jnj/jnj/K000.aspx"); err != nil {
-		return fmt.Errorf("Error: Failed to navigate:%v", err.Error())
-	}
+	web.Page.AllByClass("timeBtnR").Click()
 
 	if err := web.Page.Screenshot("dakoku.png"); err != nil {
 		return fmt.Errorf("Error: Failed to screenshot:%v", err.Error())
@@ -53,7 +51,8 @@ func Punch(user User, isCome bool) (err error) {
 
 func new(user User) (web *WebInfo, err error) {
 	// start driver
-	driver := agouti.PhantomJS()
+	//driver := agouti.PhantomJS()
+	driver := agouti.ChromeDriver()
 	if err = driver.Start(); err != nil {
 		return nil, fmt.Errorf("Error: Failed to start driver:%v", err.Error())
 	}
@@ -127,10 +126,10 @@ func (web *WebInfo) logout() (err error) {
 
 func (web *WebInfo) punch(isCome bool) (err error) {
 	if isCome == true {
-		// come to work
+		// come to work ctl00_ContentPlaceHolder1_imgIn1
 		return web.Page.AllByID("ctl00_ContentPlaceHolder1_ibtnIn3").Click()
 	} else {
-		// leave to work
-		return web.Page.AllByID("ctl00_ContentPlaceHolder1_imgOut3").Click()
+		// leave to work ctl00_ContentPlaceHolder1_imgnOut1
+		return web.Page.AllByID("ctl00_ContentPlaceHolder1_ibtnOut3").Click()
 	}
 }
