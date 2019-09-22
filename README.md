@@ -3,7 +3,7 @@
 
 ## Overview
 
-ネットde勤怠の出社と退社を自動化するためのパッケージ.
+[ネットde勤怠](https://www1.shalom-house.jp/komon/login.aspx)の出社と退社を自動化するためのパッケージ.
 
 ## Description
 CUIのコマンドから出社と退社を実施できる.
